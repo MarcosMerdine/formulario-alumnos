@@ -1,0 +1,18 @@
+<!-- templates/editar_materia.html -->
+{% extends 'base.html' %}
+
+{% block title %}Editar Materia{% endblock %}
+
+{% block content %}
+  <h1>Editar Materia</h1>
+  <form action="{{ url_for('editar_materia', materia_id=materia.id) }}" method="post">
+    <input type="hidden" name="alumno_id" value="{{ materia.alumno_id }}">
+    <input type="text" name="materia" value="{{ materia.materia }}" required>
+    <input type="text" name="turno" value="{{ materia.turno }}" required>
+    <input type="text" name="profesor" value="{{ materia.profesor }}" required>
+    <input type="text" name="aula" value="{{ materia.aula }}" required>
+    <input type="text" name="comision" value="{{ materia.comision }}" required>
+    <button type="submit">Guardar</button>
+  </form>
+  <a href="{{ url_for('alumno', alumno_id=materia.alumno_id) }}">Volver</a>
+{% endblock %}
